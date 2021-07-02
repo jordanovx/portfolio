@@ -5,13 +5,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <h1>Welcome TEST page!</h1>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, esse.
-      Sapiente ducimus explicabo quidem, corrupti rerum fugit culpa, corporis in
-      commodi ad aut ipsa cupiditate dolore libero numquam quisquam consectetur.
-    </p>
+    <header>
+      <a href="#" class="logo">< Jordanov /></a>
+
+      <nav>
+        <ul>
+          <li><a href="#">Home </a></li>
+          <li><a href="#">Hire me </a></li>
+          <li class="active"><a href="#">Portfolio </a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <h1>Passion about building & maintaining responsive websites.</h1>
+
+      <div class="overlay">
+        <div class="left stagger">
+          <h2>my work</h2>
+          <p class="subhead">Recent projects</p>
+
+          <div class="cards">
+            <div class="card">
+              <strong
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+                nisi odio blanditiis totam exercitationem alias! Veritatis
+                officiis quibusdam quae beatae totam illo eveniet, magni
+                consequatur, accusantium sapiente reiciendis ex
+                inventore!</strong
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="middle stagger"></div>
+
+        <div class="right stagger">
+          <svg
+            class="exit"
+            width="73"
+            height="73"
+            viewBox="0 0 73 73"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="36.5" cy="36.5" r="36.5" fill="white" />
+            <path
+              d="M54 22.4243L50.5757 19L37 32.5757L23.4243 19L20 22.4243L33.5757 36L20 49.5757L23.4243 53L37 39.4243L50.5757 53L54 49.5757L40.4243 36L54 22.4243Z"
+              fill="#FFBC82"
+            />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"
+      integrity="sha512-2fk3Q4NXPYAqIha0glLZ2nluueK43aNoxvijPf53+DgL7UW9mkN+uXc1aEmnZdkkZVvtJZltpRt+JqTWc3TS3Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      let open = document.querySelector(".active");
+      let close = document.querySelector(".exit");
+      let tl = gsap.timeline();
+
+      tl.to(".overlay", {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        pointerEvents: "auto",
+        duration: 0.3,
+      });
+      tl.to(".stagger", { x: 0, opacity: 1, stagger: 0.3 }, "-=.3");
+      tl.pause();
+
+      open.addEventListener("click", () => {
+        tl.play();
+      });
+
+      close.addEventListener("click", () => {
+        tl.reverse();
+      });
+    </script>
   </body>
 </html>
